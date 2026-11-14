@@ -109,7 +109,7 @@ export const RegisterProductPage: React.FC = () => {
           return;
         }
 
-        const mine = storageService.getPurchases().find((p) => p.serialNumber === serial);
+        const mine = storageService.getPurchases().find((p) => formatSerial(p.serialNumber) === formatSerial(serial));
         if (mine) {
           openOwned(mine);
           return;
@@ -124,7 +124,7 @@ export const RegisterProductPage: React.FC = () => {
           .getCustomerProducts(phone)
           .then((list) => {
             if (cancelled) return;
-            const hit = list.products.find((p) => p.serialNumber === serial);
+            const hit = list.products.find((p) => formatSerial(p.serialNumber) === formatSerial(serial));
             if (hit) {
               const owned = buildProduct(hit.serialNumber, hit.productName, hit.registeredAt);
               storageService.mergeServerPurchases(phone, [owned]);

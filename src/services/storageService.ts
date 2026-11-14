@@ -84,7 +84,7 @@ export const storageService = {
     this.saveUser(user);
     this.ensurePurchasesOwner(user.phone);
     const existing = this.getPurchases();
-    if (!existing.some(p => p.id === product.id || p.serialNumber === product.serialNumber)) {
+    if (!existing.some(p => p.id === product.id || (p.serialNumber || '').toUpperCase() === (product.serialNumber || '').toUpperCase())) {
       existing.unshift(product);
       localStorage.setItem(STORAGE_KEYS.REGISTERED_PRODUCTS, JSON.stringify(existing));
     }
@@ -121,7 +121,7 @@ export const storageService = {
 
   isProductRegistered(id: string): boolean {
     const purchases = this.getPurchases();
-    return purchases.some(p => p.id === id || p.serialNumber === id);
+    return purchases.some(p => p.id === id || (p.serialNumber || '').toUpperCase() === (id || '').toUpperCase());
   },
 
   getFavorites(): ProductDetails[] {
@@ -172,7 +172,7 @@ export const storageService = {
     this.ensurePurchasesOwner(phone);
     const merged = [...this.getPurchases()];
     products.forEach((product) => {
-      if (!merged.some((p) => p.serialNumber === product.serialNumber)) merged.push(product);
+      if (!merged.some((p) => (p.serialNumber || '').toUpperCase() === (product.serialNumber || '').toUpperCase())) merged.push(product);
     });
     merged.sort((a, b) => String(b.registeredAt || '').localeCompare(String(a.registeredAt || '')));
     localStorage.setItem(STORAGE_KEYS.REGISTERED_PRODUCTS, JSON.stringify(merged));

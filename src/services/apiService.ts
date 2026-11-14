@@ -191,21 +191,25 @@ const post = <T,>(path: string, body: unknown, timeoutMs?: number) =>
 /** Saving a registration can be slow on a weak connection, so it is allowed to take longer than other calls. */
 const REGISTER_TIMEOUT_MS = 60000;
 
+/** Serial numbers may be stored in small letters in the database; the app always works with and shows capitals. */
+const upSerial = (p: ApiProduct): ApiProduct => (p ? { ...p, serialNumber: (p.serialNumber || '').toUpperCase() } : p);
+const upVerify = (r: VerifyResponse): VerifyResponse => ({ ...r, product: upSerial(r.product) });
+
 export const apiService = {
   /** Checks the scanned serial number against Firebase. */
   verifyProduct: (serialNumber: string) =>
-    request<VerifyResponse>(`/api/products/${encodeURIComponent(serialNumber)}`),
+    request<VerifyResponse>(`/api/products/${encodeURIComponent(serialNumber)}`).then(upVerify),
 
   /** Hash mapping: checks the hash from the QR link; the reply contains the product (and its serial number). */
-  verifyByHash: (hash: string) => request<VerifyResponse>(`/api/qr/${encodeURIComponent(hash)}`),
+  verifyByHash: (hash: string) => request<VerifyResponse>(`/api/qr/${encodeURIComponent(hash)}`).then(upVerify),
 
   /** Registers the product; backend also sends the confirmation SMS and email. */
   registerProduct: (payload: RegisterPayload) =>
-    post<RegisterResponse>('/api/register', payload, REGISTER_TIMEOUT_MS),
+    post<RegisterResponse>('/api/register', payload, REGISTER_TIMEOUT_MS).then((r) => ({ ...r, product: upSerial(r.product) })),
 
   /** Every product registered with this phone number (My Favorites). */
   getCustomerProducts: (phone: string) =>
-    post<CustomerProductsResponse>('/api/customers/products', { phone }),
+    post<CustomerProductsResponse>('/api/customers/products', { phone }).then((r) => ({ ...r, products: (r.products || []).map(upSerial) })),
 
   /** Sign in / Sign up step 1: sends a 6 digit code by SMS. */
   sendOtp: (payload: SendOtpPayload) => post<SendOtpResponse>('/api/auth/send-otp', payload),

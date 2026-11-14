@@ -206,8 +206,8 @@ export function hydrateProduct(saved: ProductDetails): ProductDetails {
   const base = findCatalogProduct(saved.name, saved.serialNumber, saved.catalogKey);
   return {
     ...base,
-    id: saved.id,
-    serialNumber: saved.serialNumber,
+    id: formatSerial(saved.id),
+    serialNumber: formatSerial(saved.serialNumber),
     name: saved.name || base.name,
     registeredOn: saved.registeredOn,
     registeredDateFormatted: saved.registeredDateFormatted,
@@ -248,8 +248,8 @@ export function buildProduct(
 
   return {
     ...base,
-    id: serialNumber,
-    serialNumber,
+    id: formatSerial(serialNumber),
+    serialNumber: formatSerial(serialNumber),
     name: productName || base.name,
     registeredAt: Number.isNaN(d.getTime()) ? undefined : d.toISOString(),
     registeredOn: `${String(d.getDate()).padStart(2, '0')} ${MONTHS_SHORT[d.getMonth()]} ${d.getFullYear()}`,
