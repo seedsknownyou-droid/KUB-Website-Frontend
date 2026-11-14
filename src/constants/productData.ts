@@ -159,8 +159,20 @@ export const PRODUCT_CATALOG: ProductDetails[] = [DEFAULT_PRODUCT, MUSKMELON_PRO
 const norm = (v: string) => v.toLowerCase().replace(/[^a-z0-9]/g, '');
 
 /**
- * Finds the catalog entry for a product, first by the exact name stored in Firebase
- * ("Muskmelon - Bobby"), then by the serial-number prefix (ML... / PRI...).
+ * Serial-number prefix -> catalog product.
+ * To add a new product series, add one line here (longest/most specific prefix first).
+ *   PRI...  = Papaya Red Lady
+ *   ML... / MI... = Muskmelon - Bobby
+ */
+const SERIAL_PREFIXES: Array<{ prefix: string; product: () => ProductDetails }> = [
+  { prefix: 'PRI', product: () => DEFAULT_PRODUCT },
+  { prefix: 'ML', product: () => MUSKMELON_PRODUCT },
+  { prefix: 'MI', product: () => MUSKMELON_PRODUCT }
+];
+
+/**
+ * Finds the catalog entry for a product: by catalogKey, then by the product name stored in
+ * Firebase ("Muskmelon - Bobby"), then by the serial-number prefix.
  */
 export function findCatalogProduct(productName?: string, serialNumber?: string, catalogKey?: string): ProductDetails {
   if (catalogKey) {
@@ -171,9 +183,15 @@ export function findCatalogProduct(productName?: string, serialNumber?: string, 
     const n = norm(productName);
     const byName = PRODUCT_CATALOG.find((p) => norm(p.name) === n);
     if (byName) return byName;
+    // Loose match, e.g. "Muskmelon", "Bobby Muskmelon", "Papaya"
+    const loose = PRODUCT_CATALOG.find((p) => n.includes(norm(p.variety)) || n.includes(norm(p.name.split(/[ -]/)[0])));
+    if (loose) return loose;
   }
-  const sn = (serialNumber || '').toUpperCase();
-  if (sn.startsWith('ML')) return MUSKMELON_PRODUCT;
+  const sn = (serialNumber || '').trim().toUpperCase();
+  const byPrefix = SERIAL_PREFIXES.find((r) => sn.startsWith(r.prefix));
+  if (byPrefix) return byPrefix.product();
+
+  console.warn(`[catalog] No product found for name="${productName}" serial="${serialNumber}". Showing default product.`);
   return DEFAULT_PRODUCT;
 }
 
