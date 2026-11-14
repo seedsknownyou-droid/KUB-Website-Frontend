@@ -156,6 +156,9 @@ export const MUSKMELON_PRODUCT: ProductDetails = {
 /** All products the app knows. To add another product, add it here and in findCatalogProduct(). */
 export const PRODUCT_CATALOG: ProductDetails[] = [DEFAULT_PRODUCT, MUSKMELON_PRODUCT];
 
+/** Serial numbers are stored as-is in the database (e.g. "ml81101843"); on screen they are always shown in capitals. */
+export const formatSerial = (serial?: string): string => (serial || '').toUpperCase();
+
 const norm = (v: string) => v.toLowerCase().replace(/[^a-z0-9]/g, '');
 
 /**

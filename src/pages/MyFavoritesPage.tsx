@@ -5,7 +5,7 @@ import { MobileHeader } from '../components/MobileHeader';
 import { BottomNavigation } from '../components/BottomNavigation';
 import { EmptyFavoritesGraphic } from '../assets/EmptyFavoritesGraphic';
 import { PapayaGraphic } from '../assets/PapayaGraphic';
-import { ProductDetails } from '../constants/productData';
+import { ProductDetails, formatSerial } from '../constants/productData';
 import { storageService } from '../services/storageService';
 
 export const MyFavoritesPage: React.FC = () => {
@@ -64,7 +64,7 @@ export const MyFavoritesPage: React.FC = () => {
                       {product.name}
                     </h2>
                     <p className="text-[12px] text-gray-500 mt-0.5">
-                      Serial: {product.serialNumber}
+                      Serial: {formatSerial(product.serialNumber)}
                     </p>
                     <span className="inline-block mt-1 text-[11px] font-semibold text-[#0066FF]">
                       Authentic Seeds

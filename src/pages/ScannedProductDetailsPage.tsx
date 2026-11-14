@@ -7,7 +7,7 @@ import { ProductVideoCard } from '../components/ProductVideoCard';
 import { KnownYouSeedLogo } from '../assets/KnownYouSeedLogo';
 import { PapayaGraphic } from '../assets/PapayaGraphic';
 import { PoweredByDyrect, DyrectWordmark } from '../assets/DyrectLogo';
-import { ProductDetails } from '../constants/productData';
+import { ProductDetails, formatSerial } from '../constants/productData';
 import { storageService } from '../services/storageService';
 
 export const ScannedProductDetailsPage: React.FC = () => {
@@ -142,7 +142,7 @@ export const ScannedProductDetailsPage: React.FC = () => {
         {/* Product Serial and Date Card */}
         <section aria-label="Product Identification" className="bg-[#F8F9FD] rounded-[8px] px-[12px] py-[17.75px] mt-[9px] grid grid-cols-2 text-[13px] leading-[21px]">
           <span className="text-[#2A2B2F] font-medium">Product Serial No.:</span>
-          <span className="text-[#47464B]">{product.serialNumber}</span>
+          <span className="text-[#47464B]">{formatSerial(product.serialNumber)}</span>
           <span className="text-[#2A2B2F] font-medium">Registered On:</span>
           <span className="text-[#47464B]">{product.registeredOn}</span>
         </section>

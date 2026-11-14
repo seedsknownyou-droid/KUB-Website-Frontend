@@ -9,7 +9,7 @@ import { PapayaGraphic } from '../assets/PapayaGraphic';
 import { KnownYouSeedLogo } from '../assets/KnownYouSeedLogo';
 import { PoweredByDyrect } from '../assets/DyrectLogo';
 import { SuccessToast } from '../components/SuccessToast';
-import { buildProduct, findCatalogProduct, ProductDetails } from '../constants/productData';
+import { buildProduct, findCatalogProduct, formatSerial, ProductDetails } from '../constants/productData';
 import { storageService } from '../services/storageService';
 import { apiService, ApiError, ApiProduct } from '../services/apiService';
 import { OWNER_OPENS_DETAILS_ON_RESCAN } from '../constants/appConfig.ts';
@@ -324,7 +324,7 @@ export const RegisterProductPage: React.FC = () => {
               </div>
               <h2 className="text-lg font-semibold text-gray-800">{blockedMessage}</h2>
               {serialNumber && (
-                <p className="text-[13px] text-gray-500 mt-1">Serial No: {serialNumber}</p>
+                <p className="text-[13px] text-gray-500 mt-1">Serial No: {formatSerial(serialNumber)}</p>
               )}
             </>
           )}
@@ -349,7 +349,7 @@ export const RegisterProductPage: React.FC = () => {
               {displayName}
             </h2>
             <p className="text-[13px] font-normal text-[#787878] leading-[16px] mt-[6px]">
-              Serial No: {serialNumber}
+              Serial No: {formatSerial(serialNumber)}
             </p>
           </div>
         </div>
