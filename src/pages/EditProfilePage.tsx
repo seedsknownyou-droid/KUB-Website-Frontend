@@ -29,7 +29,7 @@ function resizeToSquareJpeg(file: File, size = 256): Promise<string> {
 
 const LABEL = 'text-[11px] leading-[14px] text-[#9A9A9A]';
 const INPUT =
-  'w-full bg-transparent text-[16px] leading-[22px] text-[#1F1F1F] py-[4px] pr-[14px] border-0 border-b border-[#DADADA] rounded-none focus:outline-none focus:border-[#0A7CFF]';
+  'w-full bg-transparent text-[16px] leading-[22px] text-[#1F1F1F] py-[4px] pr-[14px] border-0 border-b border-[#DADADA] rounded-none focus:outline-none';
 
 export const EditProfilePage: React.FC = () => {
   const navigate = useNavigate();

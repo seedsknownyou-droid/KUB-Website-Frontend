@@ -46,7 +46,7 @@ export const AuthField: React.FC<AuthFieldProps> = ({
       value={value}
       placeholder={placeholder}
       onChange={(e) => onChange(e.target.value)}
-      className="w-full h-[30px] bg-transparent p-0 text-[16px] text-[#1F1F1F] placeholder:text-[#B8B8B8] border-0 border-b border-[#DCDFE6] rounded-none focus:outline-none focus:border-[#0078FF]"
+      className="w-full h-[30px] bg-transparent p-0 text-[16px] text-[#1F1F1F] placeholder:text-[#B8B8B8] border-0 border-b border-[#DCDFE6] rounded-none focus:outline-none"
     />
     {error && <p className="text-[12px] leading-[16px] text-red-500 mt-[4px]">{error}</p>}
   </div>
@@ -176,7 +176,7 @@ export const OtpStep: React.FC<OtpStepProps> = ({
             value={code}
             placeholder="Code"
             onChange={(e) => setCode(e.target.value.replace(/\D/g, '').slice(0, 6))}
-            className="w-full h-[57px] bg-white text-center text-[20px] font-bold tracking-[0.4em] text-black placeholder:text-[#A8A8A8] placeholder:text-[17px] placeholder:tracking-[0.3em] border border-[#A8A8A8] rounded-[2px] focus:outline-none focus:border-[#0078FF]"
+            className="w-full h-[57px] bg-white text-center text-[20px] font-bold tracking-[0.4em] text-black placeholder:text-[#A8A8A8] placeholder:text-[17px] placeholder:tracking-[0.3em] border border-[#A8A8A8] rounded-[2px] focus:outline-none"
           />
           {error && <p className="text-[12px] leading-[16px] text-red-500 mt-[6px]">{error}</p>}
         </div>

@@ -113,7 +113,7 @@ export const ContactSupportPage: React.FC = () => {
               value={name}
               onChange={(e) => setName(e.target.value)}
               placeholder="Enter your name"
-              className="w-full h-[34px] p-0 text-[16px] text-[#111] bg-transparent border-0 border-b border-[#D6D6D6] rounded-none focus:border-[#0A7CFF] focus:outline-none placeholder:text-[#B8B8B8] transition-colors"
+              className="w-full h-[34px] p-0 text-[16px] text-[#111] bg-transparent border-0 border-b border-[#D6D6D6] rounded-none focus:outline-none placeholder:text-[#B8B8B8] transition-colors"
             />
             {errors.name && (
               <span className="text-red-500 text-xs mt-1">{errors.name}</span>
@@ -131,7 +131,7 @@ export const ContactSupportPage: React.FC = () => {
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
               placeholder="Enter your phone number"
-              className="w-full h-[34px] p-0 text-[16px] text-[#111] bg-transparent border-0 border-b border-[#D6D6D6] rounded-none focus:border-[#0A7CFF] focus:outline-none placeholder:text-[#B8B8B8] transition-colors"
+              className="w-full h-[34px] p-0 text-[16px] text-[#111] bg-transparent border-0 border-b border-[#D6D6D6] rounded-none focus:outline-none placeholder:text-[#B8B8B8] transition-colors"
             />
             {errors.phone && (
               <span className="text-red-500 text-xs mt-1">{errors.phone}</span>
@@ -149,7 +149,7 @@ export const ContactSupportPage: React.FC = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Enter your email"
-              className="w-full h-[34px] p-0 text-[16px] text-[#111] bg-transparent border-0 border-b border-[#D6D6D6] rounded-none focus:border-[#0A7CFF] focus:outline-none placeholder:text-[#B8B8B8] transition-colors"
+              className="w-full h-[34px] p-0 text-[16px] text-[#111] bg-transparent border-0 border-b border-[#D6D6D6] rounded-none focus:outline-none placeholder:text-[#B8B8B8] transition-colors"
             />
           </div>
 
@@ -162,7 +162,7 @@ export const ContactSupportPage: React.FC = () => {
               id="contact-message"
               value={message}
               onChange={(e) => setMessage(e.target.value)}
-              className="w-full h-[87px] p-0 pt-[7px] text-[16px] leading-[22px] text-[#111] bg-transparent border-0 border-b border-[#D6D6D6] rounded-none resize-none focus:border-[#0A7CFF] focus:outline-none placeholder:text-[#B8B8B8] transition-colors"
+              className="w-full h-[87px] p-0 pt-[7px] text-[16px] leading-[22px] text-[#111] bg-transparent border-0 border-b border-[#D6D6D6] rounded-none resize-none focus:outline-none placeholder:text-[#B8B8B8] transition-colors"
             />
             {errors.message && (
               <span className="text-red-500 text-xs mt-1">{errors.message}</span>

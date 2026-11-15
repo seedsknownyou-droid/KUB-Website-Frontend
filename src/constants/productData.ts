@@ -89,24 +89,16 @@ export const DEFAULT_PRODUCT: ProductDetails = {
     },
     {
       id: "vid-2",
-      title: "Red Lady 786 पपीता खेती और सफल किसान की कहानी",
+      title: "Red Lady 786 पपीता खेती में सफलता",
       channel: "Known-You Seed (India) Pvt. Ltd.",
-      duration: "6:20",
-      youtubeUrl: "https://youtu.be/RJ3IiJhtY9Q",
-      youtubeId: "RJ3IiJhtY9Q",
-      videoType: "success"
+      duration: "6:02",
+      youtubeUrl: "https://youtu.be/8z5w6UvQ4vI",
+      youtubeId: "8z5w6UvQ4vI",
+      videoType: "yield"
     },
     {
       id: "vid-3",
-      title: "पपीता खेती और हार्वेस्टिंग | रेड लेडी 786",
-      channel: "Known-You Seed (India) Pvt. Ltd.",
-      duration: "5:12",
-      youtubeUrl: "https://youtu.be/mqaRfb01-hA",
-      youtubeId: "mqaRfb01-hA",
-      videoType: "harvesting"
-    },
-    {
-      id: "vid-4",
+
       title: "रेड लेडी 786 पपीता खेती – ज्यादा उत्पादन, मीठा स्वाद",
       channel: "Known-You Seed (India) Pvt. Ltd.",
       duration: "7:45",
@@ -115,13 +107,24 @@ export const DEFAULT_PRODUCT: ProductDetails = {
       videoType: "yield"
     },
     {
-      id: "vid-5",
-      title: "Red Lady 786 पपीता खेती में सफलता",
+      id: "vid-4",
+      title: "पपीता खेती और हार्वेस्टिंग | रेड लेडी 786",
       channel: "Known-You Seed (India) Pvt. Ltd.",
-      duration: "6:02",
-      youtubeUrl: "https://youtu.be/8z5w6UvQ4vI",
-      youtubeId: "8z5w6UvQ4vI",
-      videoType: "yield"
+      duration: "5:12",
+      youtubeUrl: "https://youtu.be/mqaRfb01-hA",
+      youtubeId: "mqaRfb01-hA",
+      videoType: "harvesting"
+
+    },
+    {
+      id: "vid-5",
+      title: "Red Lady 786 पपीता खेती और सफल किसान की कहानी",
+      channel: "Known-You Seed (India) Pvt. Ltd.",
+      duration: "6:20",
+      youtubeUrl: "https://youtu.be/RJ3IiJhtY9Q",
+      youtubeId: "RJ3IiJhtY9Q",
+      videoType: "success"
+
     }
   ]
 };

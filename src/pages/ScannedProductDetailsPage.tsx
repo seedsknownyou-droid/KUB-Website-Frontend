@@ -7,6 +7,8 @@ import { ProductVideoCard } from '../components/ProductVideoCard';
 import { KnownYouSeedLogo } from '../assets/KnownYouSeedLogo';
 import { PapayaGraphic } from '../assets/PapayaGraphic';
 import { PoweredByDyrect, DyrectWordmark } from '../assets/DyrectLogo';
+import reviewsThumbs from '../assets/images/reviews-thumbs.png';
+import reviewsShareArrow from '../assets/images/reviews-share-arrow.png';
 import { ProductDetails, formatSerial } from '../constants/productData';
 import { storageService } from '../services/storageService';
 
@@ -213,24 +215,15 @@ export const ScannedProductDetailsPage: React.FC = () => {
         {/* Read Online Reviews Section */}
         {product.showReviews && (
         <section aria-label="Customer Reviews" className="flex flex-col items-center justify-center">
-          {/* Thumbs up + 3 outlined stars */}
-          <svg width="46" height="47" viewBox="0 0 46 47" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="9.500" y="14" width="9" height="19.500" rx="1.800" stroke="#111" strokeWidth="1.600" />
-            <circle cx="12.500" cy="29.500" r="1.200" stroke="#111" strokeWidth="1.100" />
-            <path d="M18.500 17.500L25 12C26.800 10.400 27.200 8 26.400 5.500C26 4 26.500 2.200 28 2C29.800 1.800 31 3 31 5.200C31 8 30 11 29.300 13.500H38C39.900 13.500 41 15 40.600 16.800C40.300 17.600 39.700 18.300 39 18.700C40.200 19.200 40.900 20.400 40.500 21.600C40.200 22.500 39.600 23.100 38.800 23.400C39.800 23.900 40.200 25 39.800 26C39.400 26.900 38.800 27.400 38 27.600C38.700 28.300 38.700 29.600 38 30.400C37.300 31.200 36.400 31.500 35.500 31.500H18.500" stroke="#111" strokeWidth="1.600" strokeLinejoin="round" strokeLinecap="round" />
-              <polygon points="7.00,35.40 8.38,39.10 12.33,39.27 9.24,41.73 10.29,45.53 7.00,43.35 3.71,45.53 4.76,41.73 1.67,39.27 5.62,39.10" stroke="#111" strokeWidth="1.5" strokeLinejoin="round" fill="none" />
-              <polygon points="22.50,35.40 23.88,39.10 27.83,39.27 24.74,41.73 25.79,45.53 22.50,43.35 19.21,45.53 20.26,41.73 17.17,39.27 21.12,39.10" stroke="#111" strokeWidth="1.5" strokeLinejoin="round" fill="none" />
-              <polygon points="38.00,35.40 39.38,39.10 43.33,39.27 40.24,41.73 41.29,45.53 38.00,43.35 34.71,45.53 35.76,41.73 32.67,39.27 36.62,39.10" stroke="#111" strokeWidth="1.5" strokeLinejoin="round" fill="none" />
-          </svg>
+          {/* Thumbs up + 3 outlined stars (exact artwork) */}
+          <img src={reviewsThumbs} alt="" width={49} height={47} className="block w-[49px] h-auto select-none" draggable={false} />
           <button
             type="button"
             onClick={openReviews}
             className="text-[#0087FF] font-medium text-[13px] flex items-center mt-[6px] active:opacity-70"
           >
             <span>Read online reviews</span>
-            <svg width="16" height="14" viewBox="0 0 16 14" fill="none" xmlns="http://www.w3.org/2000/svg" className="ml-[1px]">
-              <path d="M9.500 1.200L14.800 6 9.500 10.800V8C5.400 8 3 9.200 1.500 12.200C1.800 7.800 4.400 4.700 9.500 4.200z" stroke="#0087FF" strokeWidth="1.300" strokeLinejoin="round" />
-            </svg>
+            <img src={reviewsShareArrow} alt="" width={15} height={15} className="ml-[2px] w-[15px] h-auto select-none" draggable={false} />
           </button>
         </section>
         )}
@@ -292,10 +285,10 @@ export const ScannedProductDetailsPage: React.FC = () => {
               className="active:opacity-70 transition-opacity"
               aria-label="Known-You Seed India Instagram"
             >
-              <svg width="37" height="37" viewBox="0 0 37 37" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect x="1.600" y="1.600" width="33.800" height="33.800" rx="8.500" stroke="#7B8798" strokeWidth="2.800" />
-                <circle cx="18.500" cy="19.500" r="8.200" stroke="#7B8798" strokeWidth="2.800" />
-                <circle cx="28.300" cy="9" r="1.900" stroke="#7B8798" strokeWidth="2.200" />
+              <svg width="40" height="40" viewBox="0 0 79 79" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="2.1" y="2.1" width="74.8" height="74.8" rx="9" stroke="#7F8EA8" strokeWidth="4.4" />
+                <circle cx="39.5" cy="39.5" r="18.5" stroke="#7F8EA8" strokeWidth="4.4" />
+                <circle cx="62.5" cy="15.5" r="4.25" stroke="#7F8EA8" strokeWidth="4.4" />
               </svg>
             </button>
           )}
